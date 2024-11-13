@@ -1,4 +1,4 @@
-const teamMembers = [
+const initialMembers = [
     {
         name: "Marco Bianchi",
         role: "Designer",
@@ -37,37 +37,44 @@ const teamMembers = [
     }
 ];
 
-/*CARD HTML:
 
-    
+function loadTeamMembers() {
+    // Verifica se ci sono membri nel LocalStorage
+    let members = JSON.parse(localStorage.getItem("initialMembers"));
 
-*/
+    console.log("Contenuto di `LocalStorage` all'inizio:", members); // Debug
 
-/*Contenitore card:*/
-const container = document.getElementById("card-container");
+    // Se `LocalStorage` è vuoto, salva i membri iniziali e ricarica
+    if (!members || members.length === 0) {
+        console.log("LocalStorage è vuoto, inserisco `initialMembers`"); // Debug
+        members = initialMembers;
+        localStorage.setItem("initialMembers", JSON.stringify(members));
+    }
 
-/*Iterazione sull'array per creare card per ciascun elemento:*/
-teamMembers.forEach(member => {
-    //Creazione elemento card
-    const card = document.createElement('div');
-    card.classList.add('col-md-4', 'mb-4');
+    // Aggiorna il contenitore delle card
+    const teamContainer = document.getElementById("card-container");
+    teamContainer.innerHTML = '';
 
-    //Contenuto card:
-    card.innerHTML = `
-    <div class="card-custom">
-        <div class="width30per">
-            <img src="${member.img}" alt="${member.name}">
-        </div>
-        <div class="width70per ps-3">
-            <h2>${member.name}</h2>
-            <p>${member.role}</p>
-            <a href="mailto:${member.email}">${member.email}</a>
-        </div>
-    </div>
-    `;
+    // Genera le card per ogni membro
+    members.forEach(member => {
+        teamContainer.innerHTML += `
+            <div class="col-md-4 mb-4">
+                <div class="card-custom">
+                    <div class="width30per">
+                        <img src="${member.img}" alt="${member.name}" class="img-fluid rounded">
+                    </div>
+                    <div class="width70per ps-3">
+                        <h2>${member.name}</h2>
+                        <p>${member.role}</p>
+                        <a href="mailto:${member.email}">${member.email}</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
 
-    //Aggiungo card a container:
-    container.appendChild(card);
-});
+    console.log("Membri caricati nel DOM:", members); // Debug
+}
 
-
+// Carica i membri al caricamento della pagina
+window.onload = loadTeamMembers;
