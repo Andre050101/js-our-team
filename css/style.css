@@ -3,6 +3,11 @@
     --title-color: #e53170;
 }
 
+/*debug*/
+.debug {
+    border: 1px solid red;
+}
+
 /*Font:*/
 .poppins-thin {
     font-family: "Poppins", sans-serif;
@@ -53,8 +58,38 @@ h1 {
     color: var(--title-color);
 }
 
+h2 {
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+#card {
+    background-color: black;
+}
+
+#card div h2,
+#card div p {
+    color: white;
+}
+
+.width70per {
+    width: 70%;
+}
+
+.width30per {
+    width: 30%;
+}
+
+.width100per {
+    width: 100%;
 }
