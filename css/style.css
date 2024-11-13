@@ -65,3 +65,9 @@ body {
 .width30per {
     width: 30%;
 }
+
+.mineBtn {
+    color: #fff;
+    background-color: var(--title-color);
+    border-color: var(--title-color);
+}
