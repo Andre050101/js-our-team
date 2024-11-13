@@ -1,6 +1,9 @@
 /*Variables*/
 :root {
     --title-color: #e53170;
+    --link-color: #00d9ff;
+    --card-bg-color: #000;
+    --text-color: #fff;
 }
 
 /*debug*/
@@ -8,54 +11,10 @@
     border: 1px solid red;
 }
 
-/*Font:*/
-.poppins-thin {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-
-.poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.poppins-semibold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.poppins-black {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-}
-
 h1 {
-    font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-style: normal;
     color: var(--title-color);
+    padding-bottom: 30px;
 }
 
 h2 {
@@ -71,15 +30,32 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-color: #f5f5f5;
 }
 
-#card {
-    background-color: black;
+.card-custom {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
 }
 
-#card div h2,
-#card div p {
-    color: white;
+.card-custom img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card-custom h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.card-custom a {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
 .width70per {
@@ -88,8 +64,4 @@ body {
 
 .width30per {
     width: 30%;
-}
-
-.width100per {
-    width: 100%;
 }
